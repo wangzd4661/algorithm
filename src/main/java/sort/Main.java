@@ -1,13 +1,14 @@
 package sort;
 
+import java.util.Arrays;
+
 public class Main {
-    public static int[] a = {1, 7, 8, 2, 9, 5, 4,1};
+    public static int[] a = {7,4,2};
 
     public static void main(String[] args) {
-        Sort sort = new InsertionSort();
+        System.out.println(Arrays.toString(a));
+        Sort sort = new ShellSort();
         sort.sort(a);
-        for (int i : a) {
-            System.out.print(i + " ");
-        }
+        System.out.println(Arrays.toString(a));
     }
 }
