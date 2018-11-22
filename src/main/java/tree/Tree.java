@@ -1,0 +1,82 @@
+package tree;
+
+/***
+ *         1
+ *        / \
+ *     2     3
+ *   /  \     \
+ *  4   5      6
+ */
+public class Tree {
+    public static void main(String[] args) {
+        TreeNode n1 = new TreeNode(1);
+        TreeNode n2 = new TreeNode(2);
+        TreeNode n3 = new TreeNode(3);
+        TreeNode n4 = new TreeNode(4);
+        TreeNode n5 = new TreeNode(5);
+        TreeNode n6 = new TreeNode(6);
+
+        n1.left = n2;
+        n1.right = n3;
+
+        n2.left = n4;
+        n2.right = n5;
+
+        n3.right = n6;
+
+
+        postOrder(n1);
+    }
+
+    /**
+     * 前序遍历 DLR
+     *
+     * @param root 1,2,4,5,3,6,
+     */
+    public static void preOrder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        System.out.print(root.val + ",");
+        preOrder(root.left);
+        preOrder(root.right);
+    }
+
+    /**
+     * 中序遍历 LDR
+     *
+     * @param root 4,2,5,1,3,6,
+     */
+    public static void inOrder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        inOrder(root.left);
+        System.out.print(root.val + ",");
+        inOrder(root.right);
+    }
+
+    /**
+     * 后序遍历 LRD
+     *
+     * @param root 4,5,2,6,3,1,
+     */
+    public static void postOrder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.print(root.val + ",");
+    }
+
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
+    }
+}
