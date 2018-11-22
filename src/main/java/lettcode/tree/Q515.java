@@ -34,9 +34,10 @@ public class Q515 {
         return list;
     }
 
-    public static int largest(TreeNode root, List list) {
-
-        return 0;
+    public static void largest(TreeNode root, List list) {
+        if (root == null) return;
+        int max = Math.max(root.left.val, root.right.val);
+        list.add(max);
     }
 
 
