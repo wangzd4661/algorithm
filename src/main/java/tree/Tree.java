@@ -1,5 +1,8 @@
 package tree;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 /***
  *         1
  *        / \
@@ -25,7 +28,7 @@ public class Tree {
         n3.right = n6;
 
 
-        postOrder(n1);
+        levelOrder(n1);
     }
 
     /**
@@ -68,6 +71,25 @@ public class Tree {
         postOrder(root.left);
         postOrder(root.right);
         System.out.print(root.val + ",");
+    }
+
+    /**
+     * 层序遍历
+     *
+     * @param root
+     */
+    public static void levelOrder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            TreeNode temp = queue.poll();
+            System.out.print(temp.val+",");
+            if (temp.left != null) queue.add(temp.left);
+            if (temp.right != null) queue.add(temp.right);
+        }
     }
 
     public static class TreeNode {
