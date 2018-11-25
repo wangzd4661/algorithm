@@ -22,24 +22,13 @@ public class Q559 {
         if (root == null) {
             return 0;
         }
-        int depth = 0;
+        int maxDepth = 0;
         if (root.children != null) {
             for (Node child : root.children) {
-                depth=maxDepth(child);
+                int curDepth = maxDepth(child);
+                maxDepth = maxDepth > curDepth ? maxDepth : curDepth;
             }
         }
-        return depth+1;
-    }
-
-    public static void postorder(Node root, List list) {
-        if (root == null) {
-            return;
-        }
-        if (root.children != null) {
-            for (Node child : root.children) {
-                postorder(child, list);
-            }
-        }
-        list.add(root.val);
+        return maxDepth + 1;
     }
 }
