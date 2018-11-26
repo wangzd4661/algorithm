@@ -1,4 +1,6 @@
-package lettcode.tree;
+package lettcode.Q100;
+
+import lettcode.tree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,6 @@
-package lettcode.tree;
+package lettcode.Q100;
+
+import lettcode.tree.TreeNode;
 
 public class Q100 {
     public static void main(String[] args) {

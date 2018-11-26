@@ -1,12 +1,15 @@
-package lettcode.tree;
+package lettcode.Q200;
 
+import lettcode.tree.TreeNode;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 404. 左叶子之和
- * https://leetcode-cn.com/problems/sum-of-left-leaves/
+ * 144. 二叉树的前序遍历
+ * https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
  */
-public class Q404 {
+public class Q144 {
     public static void main(String[] args) {
         TreeNode n1 = new TreeNode(1);
         TreeNode n2 = new TreeNode(2);
@@ -22,25 +25,28 @@ public class Q404 {
         n2.right = n5;
 
         n3.right = n6;
+        List list = preorderTraversal(n1);
+        System.out.print(list.toString());
     }
 
-    public static int sumOfLeftLeaves(TreeNode root) {
-        int sum = 0;
-        while (root != null) {
-            sum = sum + root.val;
-
-        }
-        return sum;
+    public static List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        preOrder(root, list);
+        return list;
     }
 
+    /**
+     * DLR
+     *
+     * @param root
+     */
     public static void preOrder(TreeNode root, List list) {
         if (root == null) {
             return;
         }
-        list.add(root);
+        list.add(root.val);
         preOrder(root.left, list);
         preOrder(root.right, list);
-        root.left = null;
     }
 
 }

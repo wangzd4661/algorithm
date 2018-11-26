@@ -1,4 +1,4 @@
-package lettcode;
+package lettcode.Q400;
 
 import java.util.Arrays;
 

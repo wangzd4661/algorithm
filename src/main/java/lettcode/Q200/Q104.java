@@ -1,4 +1,6 @@
-package lettcode.tree;
+package lettcode.Q200;
+
+import lettcode.tree.TreeNode;
 
 /**
  * 104. 二叉树的最大深度

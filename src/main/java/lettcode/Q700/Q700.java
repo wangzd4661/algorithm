@@ -1,4 +1,6 @@
-package lettcode.tree;
+package lettcode.Q700;
+
+import lettcode.tree.TreeNode;
 
 /**
  * 700. 二叉搜索树中的搜索

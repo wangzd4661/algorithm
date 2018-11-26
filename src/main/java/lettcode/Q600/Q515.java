@@ -1,13 +1,15 @@
-package lettcode.tree;
+package lettcode.Q600;
+
+import lettcode.tree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 144. 二叉树的前序遍历
- * https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
+ * 515. 在每个树行中找最大值
+ * https://leetcode-cn.com/problems/find-largest-value-in-each-tree-row/
  */
-public class Q144 {
+public class Q515 {
     public static void main(String[] args) {
         TreeNode n1 = new TreeNode(1);
         TreeNode n2 = new TreeNode(2);
@@ -23,28 +25,36 @@ public class Q144 {
         n2.right = n5;
 
         n3.right = n6;
-        List list = preorderTraversal(n1);
+        List list = largestValues(n1);
         System.out.print(list.toString());
     }
 
-    public static List<Integer> preorderTraversal(TreeNode root) {
+    public static List<Integer> largestValues(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        preOrder(root, list);
+        list.add(root.val);
+        //list.add(largest(root));
         return list;
     }
 
+    public static void largest(TreeNode root, List list) {
+        if (root == null) return;
+        int max = Math.max(root.left.val, root.right.val);
+        list.add(max);
+    }
+
+
     /**
-     * DLR
+     * LDR
      *
      * @param root
      */
-    public static void preOrder(TreeNode root, List list) {
+    public static void inOrder(TreeNode root, List list) {
         if (root == null) {
             return;
         }
+        inOrder(root.left, list);
         list.add(root.val);
-        preOrder(root.left, list);
-        preOrder(root.right, list);
+        inOrder(root.right, list);
     }
 
 }

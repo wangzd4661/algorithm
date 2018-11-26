@@ -1,12 +1,15 @@
-package lettcode.tree;
+package lettcode.Q600;
+
+import lettcode.tree.Node;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
- * 590. N叉树的后序遍历
- * https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/
+ * 589. N叉树的前序遍历
+ * https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/
  */
-public class Q590 {
+public class Q589 {
     public static void main(String[] args) {
         List<Node> nodes = new ArrayList<>();
         nodes.add(new Node(2, null));
@@ -14,25 +17,25 @@ public class Q590 {
         nodes.add(new Node(4, null));
 
         Node n1 = new Node(1, nodes);
-        List<Integer> list = postorders(n1);
+        List<Integer> list =preorders(n1);
         System.out.print(list.toString());
     }
 
-    public static List<Integer> postorders(Node root) {
+    public static List<Integer> preorders(Node root) {
         List<Integer> list = new ArrayList<>();
-        postorder(root, list);
+        preOrder(root, list);
         return list;
     }
 
-    public static void postorder(Node root, List list) {
+    public static void preOrder(Node root, List list) {
         if (root == null) {
             return;
         }
+        list.add(root.val);
         if (root.children != null) {
             for (Node child : root.children) {
-                postorder(child, list);
+                preOrder(child, list);
             }
         }
-        list.add(root.val);
     }
 }

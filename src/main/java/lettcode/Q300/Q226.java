@@ -1,4 +1,6 @@
-package lettcode.tree;
+package lettcode.Q300;
+
+import lettcode.tree.TreeNode;
 
 /**
  * 226. 翻转二叉树

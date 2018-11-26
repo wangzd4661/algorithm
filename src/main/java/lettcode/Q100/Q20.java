@@ -1,4 +1,4 @@
-package lettcode;
+package lettcode.Q100;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
