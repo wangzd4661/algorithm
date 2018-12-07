@@ -12,21 +12,13 @@ package tree;
  * 4.没有键值相等的节点。
  */
 public class BinarySearchTree {
-    public static TreeNode root;
+    public TreeNode root;
 
     public static void main(String[] args) {
         int[] nums = {2, 3, 4, 1, 0};
         BinarySearchTree tree = new BinarySearchTree(nums);
-        tree.inOrder(root);
-        TreeNode treeNode = tree.search(4);
-        if (treeNode != null) {
-            System.out.println(treeNode.val);
-        } else {
-            System.out.println("null");
-        }
-        tree.delete(0);
-        tree.inOrder(root);
-
+        TreeNode delete = tree.delete(2);
+        tree.inOrder(tree.root);
     }
 
     public BinarySearchTree(int[] nums) {
@@ -43,18 +35,18 @@ public class BinarySearchTree {
         }
         TreeNode curNode = root;
         while (curNode != null) {
-            if (curNode.val < key) {
-                if (curNode.right == null) {
+            if (curNode.val < key) {//比当前节点大，//插入右边
+                if (curNode.right == null) {//当前节点没右子树，插入此处
                     curNode.right = newNode;
                     curNode = null;
-                } else {
+                } else {    //继续寻找
                     curNode = curNode.right;
                 }
-            } else if (curNode.val > key) {
-                if (curNode.left == null) {
+            } else if (curNode.val > key) {//比当前节点小，插入左边
+                if (curNode.left == null) {//当前节点没右子树，插入此处
                     curNode.left = newNode;
                     curNode = null;
-                } else {
+                } else { //继续寻找
                     curNode = curNode.left;
                 }
             }
@@ -79,44 +71,39 @@ public class BinarySearchTree {
     }
 
     public TreeNode delete(int key) {
-        return delete(root, root, key);
+        return delete(root, key);
     }
 
-    private TreeNode delete(TreeNode parNode, TreeNode treeNode, int key) {
-        TreeNode result = null;
-        if (treeNode == null) {
-            return result;
-        }
-        if (treeNode.val < key) {
-            return delete(treeNode, treeNode.right, key);
+    /**
+     * @param treeNode
+     * @param key
+     * @return 删除4种节点。
+     */
+    private TreeNode delete(TreeNode treeNode, int key) {
+        if (treeNode == null) return null;
+        if (treeNode.val < key) {//右子树中找到要删除节点
+            treeNode.right = delete(treeNode.right, key);
         } else if (treeNode.val > key) {
-            return delete(treeNode, treeNode.left, key);
-        } else {//找到节点
-            //左右节点都为空
-            if (treeNode.left == null && treeNode.right == null) {
-                result = treeNode;
+            treeNode.left = delete(treeNode.left, key);
+        } else if (treeNode.val == key) {//找到节点
+            if (treeNode.left == null && treeNode.right == null) {//左右子树都为空
                 treeNode = null;
-            } else if (treeNode.left != null && treeNode.right == null) {//只有左子树
-                if (parNode.left == treeNode) {
-                    parNode.left = treeNode.left;
-                } else if (parNode.right == treeNode) {
-                    parNode.right = treeNode.left;
+            } else if (treeNode.left == null) {//只有右子树
+                treeNode = treeNode.right;
+            } else if (treeNode.right == null) {//只有左子树
+                treeNode = treeNode.left;
+            } else if (treeNode.left != null && treeNode.right != null) {//包含左右子树
+                //找到左子树最大的节点，或者右子树最小的节点来代替当前节点
+                TreeNode tmp = treeNode;
+                tmp = tmp.left;
+                while (tmp.right != null) {
+                    tmp = tmp.right;
                 }
-                result = treeNode;
-                treeNode = null;
-            } else if (treeNode.left == null && treeNode.right != null) {//只有右子树
-                if (parNode.left == treeNode) {
-                    parNode.left = treeNode.right;
-                } else if (parNode.right == treeNode) {
-                    parNode.right = treeNode.right;
-                }
-                result = treeNode;
-                treeNode = null;
-            } else if (treeNode.left == null && treeNode.right == null) {//包含左右子树
-
+                treeNode.val = tmp.val;
+                treeNode.left = delete(treeNode.left, treeNode.val);
             }
         }
-        return result;
+        return treeNode;
     }
 
     /**
