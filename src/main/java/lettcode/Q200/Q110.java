@@ -16,41 +16,34 @@ public class Q110 {
         TreeNode n6 = new TreeNode(6);
 
         n1.left = n2;
-        n1.right = n3;
+        //n1.right = n3;
 
         n2.left = n4;
         n2.right = n5;
 
         //n3.right = n6;
-        int depth = minDepth(n1);
-        System.out.print(depth);
+        System.out.print(isBalanced(n1));
     }
 
     public static boolean isBalanced(TreeNode root) {
-        return (maxDepth(root) - minDepth(root)) < 1;
-    }
-
-    public static int minDepth(TreeNode root) {
         if (root == null) {
-            return 0;
+            return true;
         }
-        if (root.left != null && root.right != null) {
-            return Math.min(minDepth(root.left) + 1, minDepth(root.right) + 1);
-        } else if (root.left != null) {
-            return minDepth(root.left) + 1;
-        } else if (root.right != null) {
-            return minDepth(root.right) + 1;
-        } else {
-            return 1;
+        int left = depth(root.left);
+        int right = depth(root.right);
+        if (Math.abs(left - right) <= 1) {
+            return isBalanced(root.left) && isBalanced(root.right);
+        }else {
+            return false;
         }
     }
 
-    public static int maxDepth(TreeNode root) {
+    public static int depth(TreeNode root) {
         if (root == null) {
             return 0;
         }
-        int left = maxDepth(root.left);
-        int right = maxDepth(root.right);
+        int left = depth(root.left);
+        int right = depth(root.right);
         return left > right ? left + 1 : right + 1;
     }
 

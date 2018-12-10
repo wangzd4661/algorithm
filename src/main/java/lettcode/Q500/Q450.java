@@ -14,20 +14,16 @@ public class Q450 {
         } else if (root.val > key) {
             root.left = deleteNode(root.left, key);
         } else {
-            if (root.left == null && root.right == null) {
-                root = null;
-            } else if (root.right == null) {
-                root = root.left;
-            } else if (root.left == null) {
-                root = root.right;
-            } else {
+            if (root.left != null && root.right != null) {
                 TreeNode temp = root;
                 temp = temp.right;
-                if (temp.left != null) {
+                while (temp.left != null) {
                     temp = temp.left;
                 }
                 root.val = temp.val;
                 root.right = deleteNode(root.right, root.val);
+            } else {
+                root = root.left != null ? root.left : root.right;
             }
         }
         return root;

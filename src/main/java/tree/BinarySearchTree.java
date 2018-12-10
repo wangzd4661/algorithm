@@ -77,7 +77,7 @@ public class BinarySearchTree {
     /**
      * @param treeNode
      * @param key
-     * @return 删除4种节点。
+     * @return 删除节点4种情况
      */
     private TreeNode delete(TreeNode treeNode, int key) {
         if (treeNode == null) return null;
@@ -104,16 +104,6 @@ public class BinarySearchTree {
             }
         }
         return treeNode;
-    }
-
-    /**
-     * 在左子树中找到最大值
-     *
-     * @param treeNode
-     * @return
-     */
-    private TreeNode findMaxInLeftTree(TreeNode treeNode) {
-        return null;
     }
 
     public void inOrder(TreeNode root) {
