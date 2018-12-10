@@ -1,10 +1,10 @@
-package lettcode;
+package lettcode.Q100;
 
 /**
  * Created by Administrator on 2018/5/15.
  * 反转整数
  */
-public class Test2 {
+public class Q7 {
     public static void main(String[] args) {
         int i=-125;
         reverse(i);

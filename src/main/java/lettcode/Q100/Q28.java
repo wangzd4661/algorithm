@@ -1,10 +1,10 @@
-package lettcode;
+package lettcode.Q100;
 
 /**
  * Created by Administrator on 2018/5/22.
  * 实现strStr()
  */
-public class Test11 {
+public class Q28 {
     public static void main(String[] args) {
         String haystack = "hello", needle = "";
         int i=strStr(haystack,needle);

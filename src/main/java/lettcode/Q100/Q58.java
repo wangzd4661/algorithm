@@ -1,10 +1,10 @@
-package lettcode;
+package lettcode.Q100;
 
 /**
  * Created by Administrator on 2018/5/23.
  * 最后一个单词的长度
  */
-public class Test13 {
+public class Q58 {
     public static void main(String[] args) {
         int i = lengthOfLastWord("   adsa ");
         System.out.println(i);

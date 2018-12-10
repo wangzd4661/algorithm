@@ -1,4 +1,4 @@
-package lettcode;
+package lettcode.Q100;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,7 @@ import java.util.ArrayList;
  *回文数
  *
  */
-public class Test3 {
+public class Q9 {
     public static void main(String[] args) {
         int i = 1234321;
         System.out.println(isPalindrome2(i)+"");

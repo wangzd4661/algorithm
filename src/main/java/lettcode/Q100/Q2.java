@@ -1,4 +1,4 @@
-package lettcode;
+package lettcode.Q100;
 
 /**
  * Created by Administrator on 2018/5/21.
@@ -7,7 +7,7 @@ package lettcode;
  * 输出：7 -> 0 -> 8
  * 原因：342 + 465 = 807
  */
-public class Test9 {
+public class Q2 {
     public static void main(String[] args) {
         ListNode first = new ListNode(0);
         ListNode l = null;

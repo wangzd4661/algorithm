@@ -1,4 +1,4 @@
-package lettcode;
+package lettcode.Q100;
 
 import java.util.Arrays;
 
@@ -6,7 +6,7 @@ import java.util.Arrays;
  * Created by Administrator on 2018/5/24.
  * 加一
  */
-public class Test14 {
+public class Q66 {
     public static void main(String[] args) {
         int[] n = {1,9, 9};
         System.out.print(Arrays.toString(plusOne(n)));

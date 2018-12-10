@@ -1,10 +1,10 @@
-package lettcode;
+package lettcode.Q100;
 
 /**
  * Created by Administrator on 2018/5/21.
- * 整数转罗马数字
+ * 12.整数转罗马数字
  */
-public class Test8 {
+public class Q12 {
     public static void main(String[] args) {
         intToRoman(3999);
     }

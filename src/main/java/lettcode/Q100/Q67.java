@@ -1,5 +1,9 @@
 package lettcode.Q100;
 
+/**
+ * 67. 二进制求和
+ * https://leetcode-cn.com/problems/add-binary/
+ */
 public class Q67 {
     public static void main(String[] args) {
         System.out.print(addBinary("1011", "1"));

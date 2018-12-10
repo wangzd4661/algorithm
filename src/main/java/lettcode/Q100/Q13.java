@@ -1,13 +1,13 @@
-package lettcode;
+package lettcode.Q100;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by Administrator on 2018/5/16.
- * 罗马数字转整数
+ * 13.罗马数字转整数
  */
-public class Test4 {
+public class Q13 {
     public static void main(String[] args) {
         romanToInt("MMMCMXCIX");
     }

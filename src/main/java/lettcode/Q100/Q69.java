@@ -1,10 +1,10 @@
-package lettcode;
+package lettcode.Q100;
 
 /**
  * Created by Administrator on 2018/5/24.
  * x 的平方根
  */
-public class Test16 {
+public class Q69 {
     public static void main(String[] args) {
         int n = 101;
         //System.out.println(mySqrt(n));

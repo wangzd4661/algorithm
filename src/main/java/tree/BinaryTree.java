@@ -10,7 +10,7 @@ import java.util.Queue;
  *   /  \     \
  *  4   5      6
  */
-public class Tree {
+public class BinaryTree {
     public static void main(String[] args) {
         TreeNode n1 = new TreeNode(1);
         TreeNode n2 = new TreeNode(2);
@@ -28,7 +28,8 @@ public class Tree {
         n3.right = n6;
 
 
-        levelOrder(n1);
+        int s = depth(n1);
+        System.out.printf("" + s);
     }
 
     /**
@@ -86,10 +87,38 @@ public class Tree {
         queue.add(root);
         while (!queue.isEmpty()) {
             TreeNode temp = queue.poll();
-            System.out.print(temp.val+",");
+            System.out.print(temp.val + ",");
             if (temp.left != null) queue.add(temp.left);
             if (temp.right != null) queue.add(temp.right);
         }
+    }
+
+    /**
+     * 获取节点数
+     *
+     * @param root
+     * @return
+     */
+    public static int size(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return 1 + size(root.left) + size(root.right);
+    }
+
+    /**
+     * 节点深度
+     *
+     * @param root
+     * @return
+     */
+    public static int depth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = depth(root.left);
+        int right = depth(root.right);
+        return left > right ? left + 1 : right + 1;
     }
 
     public static class TreeNode {

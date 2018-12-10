@@ -1,11 +1,11 @@
-package lettcode;
+package lettcode.Q100;
 
 
 /**
  * Created by Administrator on 2018/5/22.
  * 移除元素
  */
-public class Test10 {
+public class Q27 {
     public static void main(String[] args) {
         int[] nums = {3, 3, 4, 2};
         int t=removeElement(nums, 3);

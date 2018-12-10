@@ -1,10 +1,10 @@
-package lettcode;
+package lettcode.Q100;
 
 /**
  * Created by Administrator on 2018/5/17.
  * 最长公共前缀
  */
-public class Test5 {
+public class Q14 {
     public static void main(String[] args) {
         String[] s = {"flower","fsow","flight"};
         String q=longestCommonPrefix(s);

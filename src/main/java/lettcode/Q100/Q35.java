@@ -1,10 +1,10 @@
-package lettcode;
+package lettcode.Q100;
 
 /**
  * Created by Administrator on 2018/5/22.
  * 搜索插入位置
  */
-public class Test12 {
+public class Q35 {
     public static void main(String[] args) {
         int[] nums = {1,1, 3,4,5, 6};
         int t = searchInsert2(nums, 2);

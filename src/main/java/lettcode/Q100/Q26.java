@@ -1,10 +1,10 @@
-package lettcode;
+package lettcode.Q100;
 
 /**
  * Created by Administrator on 2018/5/14.
  * 删除排序数组中的重复项
  */
-public class Test1 {
+public class Q26 {
     public static void main(String[] args) {
         int[] nums = {1, 1, 1, 2, 2, 3, 4};
         int l = removeDuplicates2(nums);

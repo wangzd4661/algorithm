@@ -1,4 +1,4 @@
-package lettcode;
+package lettcode.Q100;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,9 +7,9 @@ import java.util.List;
 /**
  * Created by Administrator on 2018/5/21.
  * <p>
- * 合并两个有序链表
+ * 21.合并两个有序链表
  */
-public class Test7 {
+public class Q21 {
     public static void main(String[] args) {
         ListNode first = new ListNode(0);
         ListNode l = null;
