@@ -9,6 +9,7 @@ public class Q26 {
         int[] nums = {1, 1, 1, 2, 2, 3, 4};
         int l = removeDuplicates2(nums);
         System.out.println("" + l);
+        print(nums);
     }
 
     /**
@@ -47,7 +48,7 @@ public class Q26 {
         }
         int len = 0;
         int num = 0;
-        for (int i = 1, len1 = nums.length; i < len1; i++) {
+        for (int i = 1; i < nums.length; i++) {
             if (nums[i] > nums[num]) {
                 len++;
                 num = i;

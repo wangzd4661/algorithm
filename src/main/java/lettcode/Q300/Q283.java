@@ -16,8 +16,8 @@ public class Q283 {
     public void moveZeroes(int[] nums) {
         int k = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != 0) {//可优化i==k时不换
-                if (i != k) {
+            if (nums[i] != 0) {
+                if (i != k) {//可优化i==k时不换
                     int temp = nums[i];
                     nums[i] = nums[k];
                     nums[k] = temp;
