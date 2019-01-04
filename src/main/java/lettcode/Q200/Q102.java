@@ -9,6 +9,7 @@ import java.util.Queue;
 
 /**
  * 102. 二叉树的层次遍历
+ * 107. 二叉树的层次遍历 II
  * https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
  */
 public class Q102 {
@@ -29,30 +30,33 @@ public class Q102 {
         n3.right = n6;
 
 
-        levelOrder(n1);
+        List<List<Integer>> a = levelOrder(n1);
+        for (List<Integer> list : a) {
+            for (Integer integer : list) {
+                System.out.print("," + integer);
+            }
+            System.out.println(",");
+        }
+
     }
 
-    public static void levelOrder(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        Queue<TreeNode> queue = new ArrayDeque<>();
+    public static List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (root == null) return res;
+        Queue<TreeNode> queue = new ArrayDeque();
         queue.add(root);
-        List<ArrayList<Integer>> list = new ArrayList<>();
         while (!queue.isEmpty()) {
-            ArrayList<Integer> inList = new ArrayList<>();
-            TreeNode temp = queue.poll();
-            System.out.print(temp.val + ",");
-            if (temp.left != null) {
-                queue.add(temp.left);
-                inList.add(temp.left.val);
+            int size = queue.size();
+            TreeNode node;
+            List list = new ArrayList<Integer>();
+            for (int i = 0; i < size; i++) {
+                node = queue.poll();
+                list.add(node.val);
+                if (node.left != null) queue.add(node.left);
+                if (node.right != null) queue.add(node.right);
             }
-            if (temp.right != null) {
-                queue.add(temp.right);
-                inList.add(temp.right.val);
-            }
-            list.add(inList);
+            res.add(0,list);
         }
-        System.out.println(list.toString());
+        return res;
     }
 }

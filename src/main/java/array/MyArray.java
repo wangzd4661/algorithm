@@ -1,7 +1,7 @@
 package array;
 
-public class MyArray {
-    private int[] data;
+public class MyArray<E> {
+    private E[] data;
     private int size;
 
     public MyArray() {
@@ -9,16 +9,23 @@ public class MyArray {
     }
 
     public MyArray(int capacity) {
-        data = new int[capacity];
+        data = (E[]) new Object[capacity];
     }
 
-    public void addLast(int e) {
+    // 向所有元素后添加一个新元素
+    public void addLast(E e) {
         add(size, e);
     }
 
-    public void add(int index, int e) {
+    // 在所有元素前添加一个新元素
+    public void addFirst(E e) {
+        add(0, e);
+    }
+
+
+    public void add(int index, E e) {
         if (index < 0 || index > size) {
-            throw new IllegalArgumentException("index");
+            throw new IllegalArgumentException("Index is illegal");
         }
         if (size == data.length) {
             resize(2 * size);
@@ -31,61 +38,78 @@ public class MyArray {
     }
 
     private void resize(int s) {
-        int[] newData = new int[s];
+        E[] newData = (E[]) new Object[s];
         for (int i = 0; i < size; i++) {
             newData[i] = data[i];
         }
         data = newData;
     }
 
-    public int get(int index) {
+    public E get(int index) {
         if (index < 0 || index > size) {
-            throw new IllegalArgumentException("index");
+            throw new IllegalArgumentException("Index is illegal");
         }
         return data[index];
     }
 
-    public void set(int index, int e) {
+    public E getLast() {
+        return get(size - 1);
+    }
+    public E getFirst() {
+        return get(0);
+    }
+
+    public void set(int index, E e) {
         if (index < 0 || index > size) {
-            throw new IllegalArgumentException("index");
+            throw new IllegalArgumentException("Index is illegal ");
         }
         data[index] = e;
     }
 
-    public int remove(int index) {
+    public E remove(int index) {
         if (index < 0 || index > size) {
-            throw new IllegalArgumentException("index");
+            throw new IllegalArgumentException("Index is illegal");
         }
-        int re = data[index];
-        for (int i = index; i < size; i++) {
-            data[i] = data[i + 1];
+        E re = data[index];
+        for (int i = index + 1; i < size; i++) {
+            data[i - 1] = data[i];
         }
         size--;
-        if (size == data.length / 4&&data.length/2!=0) {
+        if (size == data.length / 4 && data.length / 2 != 0) {
             resize(size / 2);
         }
         return re;
     }
 
-    public void removeElement(int e) {
-        int index = find(e);
-        if (index != -1) {
-            remove(index);
-        }
+    // 从数组中删除第一个元素, 返回删除的元素
+    public E removeFirst() {
+        return remove(0);
     }
 
-    public boolean contain(int e) {
+    // 从数组中删除最后一个元素, 返回删除的元素
+    public E removeLast() {
+        return remove(size - 1);
+    }
+
+    // 从数组中删除元素e
+    public void removeElement(E e) {
+        int index = find(e);
+        if (index != -1)
+            remove(index);
+    }
+
+    public boolean contain(E e) {
         for (int i = 0; i < size; i++) {
-            if (data[i] == e) {
+            if (data[i].equals(e)) {
                 return true;
             }
         }
         return false;
     }
 
-    public int find(int e) {
+    public int find(E e) {
         for (int i = 0; i < size; i++) {
-            if (data[i] == e) {
+            if (data[i].equals(e)) {
                 return i;
             }
         }
@@ -107,12 +131,15 @@ public class MyArray {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("capacity:" + getCapacity() + "," + "size:" + size + ",");
-        sb.append("array:");
+        StringBuilder res = new StringBuilder();
+        res.append(String.format("Array: size = %d , capacity = %d\n", size, data.length));
+        res.append('[');
         for (int i = 0; i < size; i++) {
-            sb.append(data[i] + ",");
+            res.append(data[i]);
+            if (i != size - 1)
+                res.append(", ");
         }
-        return sb.toString();
+        res.append(']');
+        return res.toString();
     }
 }

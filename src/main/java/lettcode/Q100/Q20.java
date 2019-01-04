@@ -16,23 +16,16 @@ public class Q20 {
     public static boolean isValid(String s) {
         if (s.isEmpty()) return true;
         Deque<Character> stack = new ArrayDeque();
-        char[] chars = s.toCharArray();
-        stack.push(chars[0]);
-        for (int i = 1; i < s.length(); i++) {
-            if (stack.isEmpty()){
-                stack.push(chars[i]);
-                continue;
-            }
-            char first = stack.peek();
-            char cur = chars[i];
-            if (cur == '}' && first == '{') {
-                stack.pop();
-            } else if (cur == ']' && first == '[') {
-                stack.pop();
-            } else if (cur == ')' && first == '(') {
-                stack.pop();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '(' || c == '[' || c == '{') {
+                stack.push(c);
             } else {
-                stack.push(chars[i]);
+                if (stack.isEmpty()) return false;
+                char top = stack.pop();
+                if (c == ')' && top != '(') return false;
+                if (c == ']' && top != '[') return false;
+                if (c == '}' && top != '{') return false;
             }
         }
         return stack.isEmpty();
