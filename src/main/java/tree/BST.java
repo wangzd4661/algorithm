@@ -73,7 +73,7 @@ public class BST<E extends Comparable<E>> {
         LinkedList<Node> stack = new LinkedList();
         stack.push(root);
         while (!stack.isEmpty()) {
-            Node node = stack.poll();
+            Node node = stack.pop();
             System.out.print(node.e + ",");
             if (node.right != null) stack.push(node.right);
             if (node.left != null) stack.push(node.left);
@@ -214,6 +214,8 @@ public class BST<E extends Comparable<E>> {
         root = remove(root, e);
     }
 
+    // 删除掉以node为根的二分搜索树中值为e的节点, 递归算法
+    // 返回删除节点后新的二分搜索树的根
     private Node remove(Node node, E e) {
         if (node == null) return null;
         if (e.compareTo(node.e) < 0) {
@@ -223,7 +225,28 @@ public class BST<E extends Comparable<E>> {
             node.right = remove(root.right, e);
             return node;
         } else {
-            return null;
+            //// 待删除节点左子树为空的情况
+            if (node.left == null) {
+                Node rightNode = node.right;
+                node.right = null;
+                size--;
+                return rightNode;
+            }
+            //// 待删除节点右子树为空的情况
+            if (node.right == null) {
+                Node leftNode = node.left;
+                node.left = null;
+                size--;
+                return leftNode;
+            }
+            // 待删除节点左右子树均不为空的情况
+            //找此节点右子数中最小的，来替换当前节点
+            Node successor = minimum(node.right);
+            successor.right = removeMin(node.right);
+            //
+            successor.left = node.left;
+            node.left = node.right = null;
+            return successor;
         }
     }
 

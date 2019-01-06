@@ -11,6 +11,13 @@ public class MyArray<E> {
     public MyArray(int capacity) {
         data = (E[]) new Object[capacity];
     }
+    public MyArray(E[] arr){
+        data = (E[])new Object[arr.length];
+        for(int i = 0 ; i < arr.length ; i ++)
+            data[i] = arr[i];
+        size = arr.length;
+    }
+
 
     // 向所有元素后添加一个新元素
     public void addLast(E e) {
@@ -37,11 +44,10 @@ public class MyArray<E> {
         size++;
     }
 
-    private void resize(int s) {
-        E[] newData = (E[]) new Object[s];
-        for (int i = 0; i < size; i++) {
+    private void resize(int newCapacity){
+        E[] newData = (E[])new Object[newCapacity];
+        for(int i = 0 ; i < size ; i ++)
             newData[i] = data[i];
-        }
         data = newData;
     }
 
@@ -75,9 +81,10 @@ public class MyArray<E> {
             data[i - 1] = data[i];
         }
         size--;
-        if (size == data.length / 4 && data.length / 2 != 0) {
-            resize(size / 2);
-        }
+        data[size] = null; // loitering objects != memory leak
+
+        if(size == data.length / 4 && data.length / 2 != 0)
+            resize(data.length / 2);
         return re;
     }
 
@@ -128,7 +135,15 @@ public class MyArray<E> {
     public int getCapacity() {
         return data.length;
     }
+    public void swap(int i, int j){
 
+        if(i < 0 || i >= size || j < 0 || j >= size)
+            throw new IllegalArgumentException("Index is illegal.");
+
+        E t = data[i];
+        data[i] = data[j];
+        data[j] = t;
+    }
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();

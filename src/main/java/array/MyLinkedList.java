@@ -64,7 +64,7 @@ public class MyLinkedList<E> {
     // 修改链表的第index(0-based)个位置的元素为e
     public void set(int index, E e) {
         if (index < 0 || index >= size)
-            throw new IllegalArgumentException("Set failed. Illegal index.");
+            throw new IllegalArgumentException("MySet failed. Illegal index.");
 
         Node cur = dummyHead.next;
         for (int i = 0; i < index; i++)
