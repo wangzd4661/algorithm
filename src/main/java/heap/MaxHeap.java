@@ -118,6 +118,6 @@ public class MaxHeap<E extends Comparable<E>> {
             if (arr[i - 1] < arr[i])
                 throw new IllegalArgumentException("Error");
 
-        System.out.println("Test MaxHeap completed.");
+        System.out.println("TDDTest MaxHeap completed.");
     }
 }
