@@ -3,7 +3,7 @@ package graph;
 public interface Graph {
     int V();//顶点个数
 
-    int E();//顶点个数
+    int E();//边数
 
     void addEdge(int v, int w);
 
@@ -11,5 +11,5 @@ public interface Graph {
 
     void show();
 
-    Iterable<Integer> adj(int v); //顶点的边
+    Iterable<Integer> adj(int v); //顶点的所有边
 }

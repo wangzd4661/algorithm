@@ -1,5 +1,8 @@
 package graph;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         // 使用两种图的存储方式读取testG1.txt文件
@@ -32,7 +35,7 @@ public class Main {
         System.out.println("test G2 in Dense Graph:");
         g4.show();*/
 
-        String filename = "src\\main\\java\\graph\\testG.txt";
+/*        String filename = "src\\main\\java\\graph\\testG.txt";
         SparseGraph g = new SparseGraph(7, false);
         ReadGraph readGraph = new ReadGraph(g, filename);
         g.show();
@@ -44,6 +47,25 @@ public class Main {
 
         ShortestPath bfs2 = new ShortestPath(g,0);
         System.out.print("BFS : ");
-        bfs2.showPath(6);
+        bfs2.showPath(6);*/
+//有权图
+        /*String filename = "src\\main\\java\\graph\\testG3.txt";
+        DenseWeightedGraph<Double> g2 = new DenseWeightedGraph<>(8, false);
+        ReadWeightedGraph readGraph2 = new ReadWeightedGraph(g2, filename);
+        System.out.println("test G3 in Dense Graph:");
+        g2.show();
+
+        System.out.println();
+
+        String filename2 = "src\\main\\java\\graph\\testG3.txt";
+        SparseWeightedGraph<Double> g3 = new SparseWeightedGraph<>(8, false);
+        ReadWeightedGraph readGraph3 = new ReadWeightedGraph(g3, filename2);
+        System.out.println("test G3 in Dense Graph:");
+        g3.show();
+
+        System.out.println();*/
+
+
+
     }
 }
