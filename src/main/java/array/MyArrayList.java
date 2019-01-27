@@ -1,17 +1,17 @@
 package array;
 
-public class MyArray<E> {
+public class MyArrayList<E> {
     private E[] data;
     private int size;
 
-    public MyArray() {
+    public MyArrayList() {
         this(10);
     }
 
-    public MyArray(int capacity) {
+    public MyArrayList(int capacity) {
         data = (E[]) new Object[capacity];
     }
-    public MyArray(E[] arr){
+    public MyArrayList(E[] arr){
         data = (E[])new Object[arr.length];
         for(int i = 0 ; i < arr.length ; i ++)
             data[i] = arr[i];
@@ -29,7 +29,11 @@ public class MyArray<E> {
         add(0, e);
     }
 
-
+    /**
+     *
+     * @param index 添加元素位置
+     * @param e 添加元素
+     */
     public void add(int index, E e) {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Index is illegal");

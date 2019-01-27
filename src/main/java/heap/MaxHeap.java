@@ -1,21 +1,21 @@
 package heap;
 
-import array.MyArray;
+import array.MyArrayList;
 
 import java.util.Random;
 
 public class MaxHeap<E extends Comparable<E>> {
-    private MyArray<E> data;
+    private MyArrayList<E> data;
 
     public MaxHeap(int capacity) {
-        data = new MyArray(capacity);
+        data = new MyArrayList(capacity);
     }
 
     public MaxHeap() {
-        data = new MyArray();
+        data = new MyArrayList();
     }
     public MaxHeap(E[] arr) {
-        data = new MyArray(arr);
+        data = new MyArrayList(arr);
         for (int i = parent(arr.length-1); i >=0 ; i--) {
             siftDown(i);
         }

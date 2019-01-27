@@ -1,14 +1,14 @@
 package array;
 
 public class MyArrayStack<E> implements Stack<E> {
-    private MyArray<E> array;
+    private MyArrayList<E> array;
 
     public MyArrayStack() {
-        array = new MyArray<>();
+        array = new MyArrayList<>();
     }
 
     public MyArrayStack(int capacity) {
-        array = new MyArray<>(capacity);
+        array = new MyArrayList<>(capacity);
     }
 
     @Override

@@ -1,14 +1,14 @@
 package array;
 
 public class MyArrayQueue<E> implements Queue<E> {
-    private MyArray<E> array;
+    private MyArrayList<E> array;
 
     public MyArrayQueue() {
-        array = new MyArray();
+        array = new MyArrayList();
     }
 
     public MyArrayQueue(int capacity) {
-        array = new MyArray(capacity);
+        array = new MyArrayList(capacity);
     }
 
     @Override
