@@ -15,6 +15,16 @@ public class RandomAccessTimeTest {
         long endTime = System.currentTimeMillis();
         return endTime-startTime;
     }
+    //使用foreach循环遍历
+    public static long traverseByForEach(List list){
+        long startTime = System.currentTimeMillis();
+        for (Object o : list) {
+
+        }
+
+        long endTime = System.currentTimeMillis();
+        return endTime-startTime;
+    }
 
     //使用迭代器遍历
     public static long traverseByIterator(List list){
@@ -35,9 +45,11 @@ public class RandomAccessTimeTest {
         }
         long loopTime = RandomAccessTimeTest.traverseByLoop(arrayList);
         long iteratorTime = RandomAccessTimeTest.traverseByIterator(arrayList);
+        long forTime = RandomAccessTimeTest.traverseByForEach(arrayList);
         System.out.println("ArrayList:");
         System.out.println("for循环遍历时间:" + loopTime);
         System.out.println("迭代器遍历时间:" + iteratorTime);
+        System.out.println("迭代器遍历时间2:" + forTime);
 
         List<String> linkedList = new LinkedList<>();
         //加入数据
@@ -46,8 +58,10 @@ public class RandomAccessTimeTest {
         }
         loopTime = RandomAccessTimeTest.traverseByLoop(linkedList);
         iteratorTime = RandomAccessTimeTest.traverseByIterator(linkedList);
+        forTime = RandomAccessTimeTest.traverseByForEach(linkedList);
         System.out.println("LinkedList:");
         System.out.println("for循环遍历时间:" + loopTime);
         System.out.println("迭代器遍历时间:" + iteratorTime);
+        System.out.println("迭代器遍历时间2:" + forTime);
     }
 }

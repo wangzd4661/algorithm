@@ -24,11 +24,11 @@ public class MyLinkedList<E> {
         }
     }
 
-    private Node dummyHead;
+    private Node head;
     private int size;
 
     public MyLinkedList() {
-        dummyHead = new Node();
+        head = new Node();
         size = 0;
     }
 
@@ -46,7 +46,7 @@ public class MyLinkedList<E> {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Illegal index.");
         }
-        Node cur = dummyHead.next;
+        Node cur = head.next;
         for (int i = 0; i < index; i++) {
             cur = cur.next;
         }
@@ -64,16 +64,16 @@ public class MyLinkedList<E> {
     // 修改链表的第index(0-based)个位置的元素为e
     public void set(int index, E e) {
         if (index < 0 || index >= size)
-            throw new IllegalArgumentException("MySet failed. Illegal index.");
+            throw new IllegalArgumentException("Illegal index");
 
-        Node cur = dummyHead.next;
+        Node cur = head.next;
         for (int i = 0; i < index; i++)
             cur = cur.next;
         cur.e = e;
     }
 
     public boolean contains(E e) {
-        Node cur = dummyHead.next;
+        Node cur = head.next;
         while (cur != null) {
             if (cur.e.equals(e))
                 return true;
@@ -84,9 +84,9 @@ public class MyLinkedList<E> {
 
     public void add(int index, E e) {
         if (index < 0 || index > size) {
-            throw new IllegalArgumentException("Illegal index.");
+            throw new IllegalArgumentException("Illegal index");
         }
-        Node pre = dummyHead;
+        Node pre = head;
         for (int i = 0; i < index; i++) {
             pre = pre.next;
         }
@@ -107,7 +107,7 @@ public class MyLinkedList<E> {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Illegal index.");
         }
-        Node pre = dummyHead;
+        Node pre = head;
         for (int i = 0; i < index; i++) {
             pre = pre.next;
         }
@@ -127,7 +127,7 @@ public class MyLinkedList<E> {
     }
 
     public void removeElement(E e) {
-        Node prev = dummyHead;
+        Node prev = head;
         while (prev.next != null) {
             if (prev.next.e.equals(e))
                 break;
@@ -145,7 +145,7 @@ public class MyLinkedList<E> {
     public String toString() {
         StringBuilder res = new StringBuilder();
 
-        Node cur = dummyHead.next;
+        Node cur = head.next;
         while (cur != null) {
             res.append(cur + "->");
             cur = cur.next;
