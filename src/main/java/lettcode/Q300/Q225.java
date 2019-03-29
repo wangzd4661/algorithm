@@ -1,8 +1,6 @@
 package lettcode.Q300;
 
-import java.util.ArrayDeque;
 import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * Q225.用队列实现栈
