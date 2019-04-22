@@ -1,7 +1,5 @@
 package lettcode.Q200;
 
-import java.util.ArrayList;
-
 /**
  * 168. Excel表列名称
  */
@@ -22,7 +20,7 @@ public class Q168 {
         while (n > 0) {
             n--;
             sb.append((char) (n % 26 + 'A'));
-            n =n / 26;
+            n = n / 26;
         }
         return sb.reverse().toString();
     }
