@@ -24,11 +24,11 @@ public class MyLinkedList<E> {
         }
     }
 
-    private Node head;
+    private Node dummyHead;
     private int size;
 
     public MyLinkedList() {
-        head = new Node();
+        dummyHead = new Node();
         size = 0;
     }
 
@@ -46,7 +46,7 @@ public class MyLinkedList<E> {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Illegal index.");
         }
-        Node cur = head.next;
+        Node cur = dummyHead.next;
         for (int i = 0; i < index; i++) {
             cur = cur.next;
         }
@@ -66,14 +66,14 @@ public class MyLinkedList<E> {
         if (index < 0 || index >= size)
             throw new IllegalArgumentException("Illegal index");
 
-        Node cur = head.next;
+        Node cur = dummyHead.next;
         for (int i = 0; i < index; i++)
             cur = cur.next;
         cur.e = e;
     }
 
     public boolean contains(E e) {
-        Node cur = head.next;
+        Node cur = dummyHead.next;
         while (cur != null) {
             if (cur.e.equals(e))
                 return true;
@@ -86,7 +86,7 @@ public class MyLinkedList<E> {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Illegal index");
         }
-        Node pre = head;
+        Node pre = dummyHead;
         for (int i = 0; i < index; i++) {
             pre = pre.next;
         }
@@ -107,7 +107,7 @@ public class MyLinkedList<E> {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Illegal index.");
         }
-        Node pre = head;
+        Node pre = dummyHead;
         for (int i = 0; i < index; i++) {
             pre = pre.next;
         }
@@ -127,7 +127,7 @@ public class MyLinkedList<E> {
     }
 
     public void removeElement(E e) {
-        Node prev = head;
+        Node prev = dummyHead;
         while (prev.next != null) {
             if (prev.next.e.equals(e))
                 break;
@@ -145,7 +145,7 @@ public class MyLinkedList<E> {
     public String toString() {
         StringBuilder res = new StringBuilder();
 
-        Node cur = head.next;
+        Node cur = dummyHead.next;
         while (cur != null) {
             res.append(cur + "->");
             cur = cur.next;
