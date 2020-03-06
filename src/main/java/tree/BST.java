@@ -111,6 +111,22 @@ public class BST<E extends Comparable<E>> {
         inOrder(node.right);
     }
 
+    //非递归中序遍历
+    public void inOrderNR() {
+        if (root == null) return;
+        LinkedList<Node> stack = new LinkedList();
+        Node cur = root;
+        while (cur != null || !stack.isEmpty()) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            cur = stack.pop();
+            System.out.print(cur.e + ",");
+            cur = cur.right;
+        }
+    }
+
     // 二分搜索树的后序遍历
     public void postOrder() {
         postOrder(root);
@@ -124,6 +140,30 @@ public class BST<E extends Comparable<E>> {
         postOrder(node.left);
         postOrder(node.right);
         System.out.print(node.e + ",");
+    }
+
+    //非递归后序遍历
+    public void postOrderNR() {
+        if (root == null) return;
+        LinkedList<Node> stack = new LinkedList();
+        Node pre = null;
+        Node cur = root;
+        while(cur != null || !stack.isEmpty()){
+            while(cur != null){
+                stack.push(cur);
+                cur = cur.left;
+            }
+            cur = stack.pop();
+            if(cur.right == null || pre == cur.right){
+                System.out.print(cur.e + ",");
+                pre = cur;
+                cur = null;
+            }
+            else{
+                stack.push(cur);
+                cur = cur.right;
+            }
+        }
     }
 
     //层序遍历
@@ -276,6 +316,26 @@ public class BST<E extends Comparable<E>> {
         for (int i = 0; i < depth; i++)
             res.append("--");
         return res.toString();
+    }
+
+    public static void main(String[] args) {
+        BST<Integer> bst = new BST<>();
+        int[] nums = {5, 3, 6, 8, 4, 2};
+        for (int num : nums)
+            bst.add(num);
+
+        /////////////////
+        //      5      //
+        //    /   \    //
+        //   3    6    //
+        //  / \    \   //
+        // 2  4     8  //
+        /////////////////
+        bst.postOrder();
+        System.out.println();
+
+        bst.postOrderNR();
+        System.out.println();
     }
 
 }

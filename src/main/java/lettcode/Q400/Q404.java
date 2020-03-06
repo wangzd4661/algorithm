@@ -2,8 +2,6 @@ package lettcode.Q400;
 
 import lettcode.tree.TreeNode;
 
-import java.util.List;
-
 /**
  * 404. 左叶子之和
  * https://leetcode-cn.com/problems/sum-of-left-leaves/
@@ -24,25 +22,16 @@ public class Q404 {
         n2.right = n5;
 
         n3.right = n6;
+        System.out.print(sumOfLeftLeaves(n1) + "");
     }
 
     public static int sumOfLeftLeaves(TreeNode root) {
-        int sum = 0;
-        while (root != null) {
-            sum = sum + root.val;
-
-        }
-        return sum;
+        return sumOfLeftLeaves(root, false);
     }
 
-    public static void preOrder(TreeNode root, List list) {
-        if (root == null) {
-            return;
-        }
-        list.add(root);
-        preOrder(root.left, list);
-        preOrder(root.right, list);
-        root.left = null;
+    public static int sumOfLeftLeaves(TreeNode root, boolean isLeft) {
+        if (root == null) return 0;
+        if (isLeft && root.left == null && root.right == null) return root.val;
+        return sumOfLeftLeaves(root.left, true) + sumOfLeftLeaves(root.right, false);
     }
-
 }
