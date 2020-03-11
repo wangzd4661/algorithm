@@ -1,5 +1,9 @@
 package segmentTree;
 
+/**
+ * 线段树
+ * @param <E>
+ */
 public class SegmentTree<E> {
     private E[] tree;
     private E[] data;
