@@ -2,6 +2,10 @@ package lettcode.Q001;
 
 import lettcode.tree.ListNode;
 
+/**
+ * 24. 两两交换链表中的节点
+ * https://leetcode-cn.com/problems/swap-nodes-in-pairs/
+ */
 public class Q24 {
     public static ListNode swapPairs(ListNode head) {
         if (head == null || head.next == null) return head;
