@@ -11,6 +11,7 @@ public class Q4 {
 
     }
 
+    //=-=哎呀。垃圾解法
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
         ArrayList<Integer> list = new ArrayList<>(nums1.length + nums2.length);
         for (int i : nums1) {
@@ -24,7 +25,7 @@ public class Q4 {
         if (size % 2 == 0) {
             int n1 = list.get(size / 2);
             int n2 = list.get((size / 2) - 1);
-            return (n1 + n2) / (double)2;
+            return (n1 + n2) / (double) 2;
         } else {
             return list.get(size / 2);
         }

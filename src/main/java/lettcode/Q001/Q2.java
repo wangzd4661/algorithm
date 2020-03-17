@@ -1,5 +1,7 @@
 package lettcode.Q001;
 
+import lettcode.tree.ListNode;
+
 /**
  * Created by Administrator on 2018/5/21.
  * 两数相加
@@ -9,23 +11,10 @@ package lettcode.Q001;
  */
 public class Q2 {
     public static void main(String[] args) {
-        ListNode first = new ListNode(0);
-        ListNode l = null;
-        for (int i = 1; i < 4; i++) {
-            ListNode newNode = new ListNode(i);
-            if (l == null) {
-                first.next = newNode;
-            } else {
-                l.next = newNode;
-            }
-            l = newNode;
-        }
-        ListNode r = addTwoNumbers(first, first);
-
-        int s = nodeToNum(r);
-        System.out.print(s);
+        ListNode r = addTwoNumbers(new ListNode(new int[]{2,4,3}), new ListNode(new int[]{5,6,4}));
+        System.out.println(r);
     }
-
+    //Time O(n) Space O(1)
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         int carry = 0;
         ListNode temp = null, result = null;
@@ -44,32 +33,5 @@ public class Q2 {
             l2 = l2 == null ? null : l2.next;
         }
         return result;
-    }
-
-    public static int nodeToNum(ListNode l) {
-        int num = 0;
-        int size = 0;
-        while (true) {
-            if (l == null) {
-                return 0;
-            }
-            num = (int) (num + (l.val) * Math.pow(10, size));
-            size++;
-            if (l.next == null) {
-                break;
-            } else {
-                l = l.next;
-            }
-        }
-        return num;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
     }
 }
