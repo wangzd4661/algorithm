@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Administrator on 2018/5/16.
+ * Created by wzd on 2018/5/16.
  * 13.罗马数字转整数
  */
 public class Q13 {
