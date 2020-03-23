@@ -25,15 +25,6 @@ public class TestJunit {
         System.out.println("After");
     }
 
-    @Test
-    public void test1() {
-        System.out.println("test1");
-    }
-
-    @Test
-    public void test2() {
-        System.out.println("test2");
-    }
 
     @Ignore
     public void test3() {
