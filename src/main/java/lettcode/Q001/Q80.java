@@ -16,18 +16,22 @@ public class Q80 {
     }
 
     public static int removeDuplicates(int[] nums) {
-        if (nums.length == 0) {
+        if (nums==null||nums.length == 0) {
             return 0;
         }
-        int len = 0;
-        int num = 0;
-        for (int i = 0; i < nums.length; i = i + 2) {
-            if (nums[i] > nums[num]) {
-                len++;
-                num = i;
-                nums[len] = nums[i];
+        int count = 1;
+        int cur=nums[0];
+        for (int i = 1; i < nums.length; i ++) {
+            if(nums[i]!=cur){
+                cur=nums[i];
+                count=1;
+            }else {
+                count++;
+                if(count>2){
+                    
+                }
             }
         }
-        return (len + 1);
+        return 0;
     }
 }

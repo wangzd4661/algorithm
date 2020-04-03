@@ -37,7 +37,7 @@ public class Q26 {
     }
 
     /**
-     * 排序好了的
+     * 双指针
      *
      * @param nums
      * @return
