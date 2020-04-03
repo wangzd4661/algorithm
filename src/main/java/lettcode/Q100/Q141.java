@@ -17,10 +17,10 @@ public class Q141 {
         n2.next = n3;
         n3.next = n4;
         n4.next = n5;
-        //n5.next = n2;
+        n5.next = n2;
         System.out.printf(""+hasCycle(n1));
     }
-
+    //快慢指针
     public static boolean hasCycle(ListNode head) {
         if (head == null || head.next == null) return false;
         ListNode fast = head.next;
