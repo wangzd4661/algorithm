@@ -1,6 +1,5 @@
 package lettcode.Q001;
 
-import sun.jvm.hotspot.oops.Array;
 
 import java.util.Arrays;
 

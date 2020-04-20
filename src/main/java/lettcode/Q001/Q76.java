@@ -1,7 +1,5 @@
 package lettcode.Q001;
 
-import java.util.HashMap;
-
 /**
  * 76. 最小覆盖子串
  * https://leetcode-cn.com/problems/minimum-window-substring/
@@ -44,7 +42,7 @@ public class Q76 {
             }
         }
         if (start != -1) {
-            return s.substring(start, start+minLength);
+            return s.substring(start, start + minLength);
         }
         return "";
     }
