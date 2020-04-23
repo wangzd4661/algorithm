@@ -1,5 +1,7 @@
 package lettcode.Q001;
 
+import lettcode.tree.ListNode;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -77,15 +79,5 @@ public class Q21 {
             l.next = mergeTwoLists(l1, l2.next);
         }
         return l;
-    }
-
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
     }
 }

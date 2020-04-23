@@ -1,5 +1,7 @@
 package lettcode.Q200;
 
+import lettcode.tree.ListNode;
+
 /**
  * 203. 移除链表元素
  * https://leetcode-cn.com/problems/remove-linked-list-elements/
@@ -21,7 +23,7 @@ public class Q203 {
     }
 
     public static ListNode removeElements(ListNode head, int val) {
-        if (head == null) return head;
+        if (head == null) return null;
         ListNode myHead = new ListNode(0);
         myHead.next = head;
         ListNode cur = myHead;
@@ -42,15 +44,6 @@ public class Q203 {
             return head.next;
         } else {
             return head;
-        }
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
         }
     }
 

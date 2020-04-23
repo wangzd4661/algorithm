@@ -17,8 +17,24 @@ public class Q24 {
         return l2;
     }
 
+    public static ListNode swapPairs2(ListNode head) {
+        ListNode dummyHead = new ListNode(0);
+        dummyHead.next = head;
+        ListNode p = dummyHead;
+        while (p.next != null && p.next.next != null) {
+            ListNode node1=p.next;
+            ListNode node2=node1.next;
+            ListNode next=node2.next;
+            node2.next=node1;
+            node1.next=next;
+            p.next=node2;
+            p=node1;
+        }
+        return dummyHead.next;
+    }
+
     public static void main(String[] args) {
-        ListNode node = swapPairs(new ListNode(new int[]{1, 2, 3, 4}));
+        ListNode node = swapPairs2(new ListNode(new int[]{1, 2, 3, 4}));
         System.out.print(node);
     }
 }

@@ -28,9 +28,26 @@ public class Q19 {
         }
         return list.get(retPos);
     }
+
+    public ListNode removeNthFromEnd2(ListNode head, int n) {
+        ListNode dummyHead = new ListNode(0);
+        dummyHead.next=head;
+        ListNode p = dummyHead;
+        ListNode q = dummyHead;
+        for (int i = 0; i < n + 1; i++) {
+            q = q.next;
+        }
+        while (q != null) {
+            p = p.next;
+            q = q.next;
+        }
+        p.next = p.next.next;
+        return dummyHead.next;
+    }
+
     public static void main(String[] args) {
         ListNode head = new ListNode(new int[]{1, 2});
-        ListNode node = new Q19().removeNthFromEnd(head, 1);
+        ListNode node = new Q19().removeNthFromEnd2(head, 1);
         System.out.printf(node.toString());
     }
 }

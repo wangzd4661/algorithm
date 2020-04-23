@@ -1,5 +1,7 @@
 package lettcode.Q001;
 
+import lettcode.tree.ListNode;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -69,14 +71,5 @@ public class Q83 {
             }
         }
         return head;
-    }
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
     }
 }

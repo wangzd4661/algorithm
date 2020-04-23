@@ -1,5 +1,7 @@
 package lettcode.Q200;
 
+import lettcode.tree.ListNode;
+
 public class Q237 {
     public static void main(String[] args) {
         ListNode n1 = new ListNode(4);
@@ -17,14 +19,5 @@ public class Q237 {
     public void deleteNode(ListNode node) {
         node.val=node.next.val;
         node.next=node.next.next;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
     }
 }
