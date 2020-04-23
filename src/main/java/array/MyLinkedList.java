@@ -43,7 +43,7 @@ public class MyLinkedList<E> {
     }
 
     public E get(int index) {
-        if (index < 0 || index > size) {
+        if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Illegal index.");
         }
         Node cur = dummyHead.next;
@@ -104,7 +104,7 @@ public class MyLinkedList<E> {
     }
 
     public E remove(int index) {
-        if (index < 0 || index > size) {
+        if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Illegal index.");
         }
         Node pre = dummyHead;
