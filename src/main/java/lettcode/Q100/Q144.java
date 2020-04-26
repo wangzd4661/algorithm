@@ -1,8 +1,10 @@
 package lettcode.Q100;
 
 import lettcode.tree.TreeNode;
+import tree.BST;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -25,7 +27,7 @@ public class Q144 {
         n2.right = n5;
 
         n3.right = n6;
-        List list = preorderTraversal(n1);
+        List list = preOrderNR(n1);
         System.out.print(list.toString());
     }
 
@@ -48,5 +50,19 @@ public class Q144 {
         preOrder(root.left, list);
         preOrder(root.right, list);
     }
+    public static List<Integer> preOrderNR(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) return list;
+        LinkedList<TreeNode> stack = new LinkedList();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            list.add(node.val);
+            if (node.right != null) stack.push(node.right);
+            if (node.left != null) stack.push(node.left);
+        }
+        return list;
+    }
+
 
 }
