@@ -121,7 +121,7 @@ public class BinaryTree {
         return left > right ? left + 1 : right + 1;
     }
 
-    public static class TreeNode {
+    private static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
