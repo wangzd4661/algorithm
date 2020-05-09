@@ -13,21 +13,21 @@ public class SelectionSort extends Sort {
             return;
         }
         for (int i = 0; i < args.length; i++) {
-            int min = i;
+            int minPos = i;
             for (int j = i + 1; j < args.length; j++) {
-                if (args[j] < args[min]) {
-                    min = j;
+                if (args[j] < args[minPos]) {
+                    minPos = j;
                 }
             }
-            if (i != min) {
-                exch(args, i, min);
+            if (i != minPos) {
+                exch(args, i, minPos);
             }
         }
     }
     public static void main(String[] args) {
 
-        int[] arr = {10,9,8,7,6,5,4,3,2,1};
-        new SelectionSort().sort2(arr);
+        int[] arr = {6,5,5,3,2,1};
+        new SelectionSort().sort(arr);
         for( int i = 0 ; i < arr.length ; i ++ ){
             System.out.print(arr[i]);
             System.out.print(' ');

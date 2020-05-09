@@ -65,8 +65,8 @@ public class InsertionSort extends Sort {
     }
     public static void main(String[] args) {
 
-        int[] arr = {10,9,8,7,5,6,4,3,2,1};
-        new InsertionSort().sort3(arr);
+        int[] arr = {5,3,4,7,2};
+        new InsertionSort().sort(arr);
         for( int i = 0 ; i < arr.length ; i ++ ){
             System.out.print(arr[i]);
             System.out.print(' ');
