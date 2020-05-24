@@ -13,11 +13,15 @@ public class BubbleSort extends Sort {
             return;
         }
         for (int i = 0; i < args.length - 1; i++) {
+            // 提前退出
+            boolean flag = false;
             for (int j = 0; j < args.length - 1 - i; j++) {
                 if (args[j] > args[j + 1]) {
                     exch(args, j, j + 1);
+                    flag=true;
                 }
             }
+            if(!flag)break;
         }
     }
 }

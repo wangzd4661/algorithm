@@ -58,16 +58,16 @@ public class InsertionSort extends Sort {
     void sort3(int[] args) {
         for (int i = 1; i < args.length; i++) {
             // 寻找元素arr[i]合适的插入位置
-            for (int j = i; j > 0 && args[j] < args[j-1]; j--) {
-                exch(args, j-1, j);
+            for (int j = i; j > 0 && args[j] < args[j - 1]; j--) {
+                exch(args, j - 1, j);
             }
         }
     }
-    public static void main(String[] args) {
 
-        int[] arr = {5,3,4,7,2};
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 4, 7, 2};
         new InsertionSort().sort(arr);
-        for( int i = 0 ; i < arr.length ; i ++ ){
+        for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i]);
             System.out.print(' ');
         }
