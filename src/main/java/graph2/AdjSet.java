@@ -2,23 +2,18 @@ package graph2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 /**
- * 邻接表链表实现
- * 缺点：查看两点是否相邻O（degree（V））
- * 缺点：建图 O（E*V）
- * 空间复杂度O（V+E）
- * 求一点的相邻节点O（degree（V））
+ *  邻接表TreeSet实现
  */
-public class AdjList {
+public class AdjSet {
     private int V;
     private int E;
-    private LinkedList<Integer>[] adj;
+    private TreeSet<Integer>[] adj;
 
-    public AdjList(String fileName) {
+    public AdjSet(String fileName) {
         if (fileName == null || fileName.isEmpty()) {
             throw new IllegalArgumentException("fileName must be non-null");
         }
@@ -26,9 +21,9 @@ public class AdjList {
         try (Scanner scanner = new Scanner(file)) {
             V = scanner.nextInt();
             if (V < 0) throw new IllegalArgumentException("V must be non-negative");
-            adj = new LinkedList[V];
+            adj = new TreeSet[V];
             for (int i = 0; i < V; i++) {
-                adj[i] = new LinkedList<>();
+                adj[i] = new TreeSet<>();
             }
             E = scanner.nextInt();
             if (E < 0) throw new IllegalArgumentException("E must be non-negative");
@@ -38,7 +33,7 @@ public class AdjList {
                 int b = scanner.nextInt();
                 validateVertex(b);
                 if (a == b) throw new IllegalArgumentException("Self Loop is invalid");
-                if (adj[a].contains(b)) throw new IllegalArgumentException("Parallel Edges is invalid");
+                if (adj[a].contains(b)) throw new IllegalArgumentException("Parallel Edges are invalid");
                 adj[a].add(b);
                 adj[b].add(a);
             }
@@ -65,13 +60,14 @@ public class AdjList {
         return adj[v].contains(w);
     }
 
-    public LinkedList<Integer> adj(int v) {
+    public Iterable<Integer> adj(int v) {
         validateVertex(v);
         return adj[v];
     }
 
     public int degree(int v) {
-        return adj(v).size();
+        validateVertex(v);
+        return adj[v].size();
     }
 
     @Override
@@ -90,7 +86,7 @@ public class AdjList {
     }
 
     public static void main(String[] args) {
-        AdjList adjList = new AdjList("src/main/java/graph2/g.txt");
-        System.out.println(adjList);
+        AdjSet adjSet = new AdjSet("src/main/java/graph2/g.txt");
+        System.out.println(adjSet);
     }
 }

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
+ * 矩阵实现
  * 查看两点是否相邻O（1）
  * 建图 O（E）
  * 缺点：空间复杂度高O（V^2）
