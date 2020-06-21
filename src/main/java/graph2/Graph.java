@@ -8,12 +8,12 @@ import java.util.TreeSet;
 /**
  *  邻接表TreeSet实现
  */
-public class AdjSet {
+public class Graph {
     private int V;
     private int E;
     private TreeSet<Integer>[] adj;
 
-    public AdjSet(String fileName) {
+    public Graph(String fileName) {
         if (fileName == null || fileName.isEmpty()) {
             throw new IllegalArgumentException("fileName must be non-null");
         }
@@ -42,7 +42,7 @@ public class AdjSet {
         }
     }
 
-    private void validateVertex(int v) {
+    public void validateVertex(int v) {
         if (v < 0 || v >= V) throw new IllegalArgumentException("vertex " + v + "is invalid");
     }
 
@@ -86,7 +86,7 @@ public class AdjSet {
     }
 
     public static void main(String[] args) {
-        AdjSet adjSet = new AdjSet("src/main/java/graph2/g.txt");
-        System.out.println(adjSet);
+        Graph graph = new Graph("src/main/java/graph2/g.txt");
+        System.out.println(graph);
     }
 }
