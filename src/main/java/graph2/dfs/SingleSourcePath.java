@@ -1,7 +1,11 @@
-package graph2;
+package graph2.dfs;
+
+import graph2.base.Graph;
 
 import java.util.ArrayList;
 import java.util.Collections;
+
+import static graph2.base.Graph.FILE_NAME;
 
 public class SingleSourcePath {
     private Graph G;
@@ -46,7 +50,7 @@ public class SingleSourcePath {
     }
 
     public static void main(String[] args) {
-        Graph graph = new Graph("src/main/java/graph2/g.txt");
+        Graph graph = new Graph(FILE_NAME);
         SingleSourcePath ss=new SingleSourcePath(graph,0);
         System.out.println(ss.path(6));
     }

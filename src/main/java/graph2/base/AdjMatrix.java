@@ -1,9 +1,11 @@
-package graph2;
+package graph2.base;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import static graph2.base.Graph.FILE_NAME;
 
 /**
  * 矩阵实现
@@ -84,7 +86,7 @@ public class AdjMatrix {
     }
 
     public static void main(String[] args) {
-        AdjMatrix adjMatrix=new AdjMatrix("src/main/java/graph2/g.txt");
+        AdjMatrix adjMatrix=new AdjMatrix(FILE_NAME);
         System.out.println(adjMatrix);
     }
 }

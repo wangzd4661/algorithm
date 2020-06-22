@@ -1,7 +1,11 @@
-package graph2;
+package graph2.dfs;
+
+import graph2.base.Graph;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import static graph2.base.Graph.FILE_NAME;
 
 /**
  * 无向图联通分量
@@ -56,7 +60,7 @@ public class CC {
     }
 
     public static void main(String[] args) {
-        Graph graph = new Graph("src/main/java/graph2/g.txt");
+        Graph graph = new Graph(FILE_NAME);
         CC cc=new CC(graph);
         System.out.println(cc.count());
         System.out.println(cc.isConnected(0,6));

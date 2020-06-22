@@ -1,6 +1,10 @@
-package graph2;
+package graph2.dfs;
+
+import graph2.base.Graph;
 
 import java.util.ArrayList;
+
+import static graph2.base.Graph.FILE_NAME;
 
 /**
  * 时间复杂度O（V+E）
@@ -38,7 +42,7 @@ public class GraphDFS {
     }
 
     public static void main(String[] args) {
-        Graph graph = new Graph("src/main/java/graph2/g.txt");
+        Graph graph = new Graph(FILE_NAME);
         GraphDFS graphDFS=new GraphDFS(graph);
         System.out.println(graphDFS.pre());
         System.out.println(graphDFS.post());

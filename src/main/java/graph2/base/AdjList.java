@@ -1,10 +1,11 @@
-package graph2;
+package graph2.base;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
+
+import static graph2.base.Graph.FILE_NAME;
 
 /**
  * 邻接表链表实现
@@ -90,7 +91,7 @@ public class AdjList {
     }
 
     public static void main(String[] args) {
-        AdjList adjList = new AdjList("src/main/java/graph2/g.txt");
+        AdjList adjList = new AdjList(FILE_NAME);
         System.out.println(adjList);
     }
 }

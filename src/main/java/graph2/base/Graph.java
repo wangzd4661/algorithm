@@ -1,4 +1,4 @@
-package graph2;
+package graph2.base;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,6 +9,7 @@ import java.util.TreeSet;
  *  邻接表TreeSet实现
  */
 public class Graph {
+    public static final String FILE_NAME ="src/main/java/graph2/g.txt";
     private int V;
     private int E;
     private TreeSet<Integer>[] adj;
@@ -86,7 +87,7 @@ public class Graph {
     }
 
     public static void main(String[] args) {
-        Graph graph = new Graph("src/main/java/graph2/g.txt");
+        Graph graph = new Graph(FILE_NAME);
         System.out.println(graph);
     }
 }
