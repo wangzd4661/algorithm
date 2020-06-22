@@ -7,13 +7,13 @@ import java.util.Collections;
 
 import static graph2.base.Graph.FILE_NAME;
 
-public class SingleSourcePath {
+public class SingleSourcePathDFS {
     private Graph G;
     private boolean[] visited;
     private int s;
     private int[] pre;
 
-    public SingleSourcePath(Graph g,int s) {
+    public SingleSourcePathDFS(Graph g, int s) {
         G = g;
         this.s=s;
         pre=new int[G.V()];
@@ -51,7 +51,7 @@ public class SingleSourcePath {
 
     public static void main(String[] args) {
         Graph graph = new Graph(FILE_NAME);
-        SingleSourcePath ss=new SingleSourcePath(graph,0);
+        SingleSourcePathDFS ss=new SingleSourcePathDFS(graph,0);
         System.out.println(ss.path(6));
     }
 }

@@ -10,12 +10,12 @@ import static graph2.base.Graph.FILE_NAME;
 /**
  * 无向图联通分量
  */
-public class CC {
+public class CCDFS {
     private Graph G;
     private int[] visited;
     private int ccCount;
 
-    public CC(Graph g) {
+    public CCDFS(Graph g) {
         G = g;
         visited=new int[G.V()];
         for (int i = 0; i < visited.length; i++) {
@@ -61,10 +61,10 @@ public class CC {
 
     public static void main(String[] args) {
         Graph graph = new Graph(FILE_NAME);
-        CC cc=new CC(graph);
-        System.out.println(cc.count());
-        System.out.println(cc.isConnected(0,6));
-        System.out.println(cc.isConnected(0,5));
-        System.out.println(Arrays.toString(cc.components()));
+        CCDFS CCDFS =new CCDFS(graph);
+        System.out.println(CCDFS.count());
+        System.out.println(CCDFS.isConnected(0,6));
+        System.out.println(CCDFS.isConnected(0,5));
+        System.out.println(Arrays.toString(CCDFS.components()));
     }
 }

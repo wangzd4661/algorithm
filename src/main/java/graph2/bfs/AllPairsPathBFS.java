@@ -1,21 +1,18 @@
-package graph2.dfs;
+package graph2.bfs;
 
 import graph2.base.Graph;
 
 import static graph2.base.Graph.FILE_NAME;
 
-/**
- * 所有路径
- */
-public class AllPairsPath {
+public class AllPairsPathBFS {
     private Graph G;
-    private SingleSourcePath[] paths;
+    private SingleSourcePathBFS[] paths;
 
-    public AllPairsPath(Graph g) {
+    public AllPairsPathBFS(Graph g) {
         G = g;
-        paths = new SingleSourcePath[G.V()];
+        paths = new SingleSourcePathBFS[G.V()];
         for (int v = 0; v < paths.length; v++) {
-            paths[v] = new SingleSourcePath(G, v);
+            paths[v] = new SingleSourcePathBFS(G, v);
         }
     }
 
@@ -31,7 +28,8 @@ public class AllPairsPath {
 
     public static void main(String[] args) {
         Graph graph = new Graph(FILE_NAME);
-        AllPairsPath allPairsPath = new AllPairsPath(graph);
-        System.out.println(allPairsPath.path(0, 6));
+        AllPairsPathBFS allPairsPathDFS = new AllPairsPathBFS(graph);
+        System.out.println(allPairsPathDFS.path(0, 6));
     }
+
 }

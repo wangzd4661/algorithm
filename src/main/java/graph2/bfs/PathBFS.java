@@ -1,23 +1,22 @@
-package graph2.dfs;
+package graph2.bfs;
 
 import graph2.base.Graph;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Queue;
 
 import static graph2.base.Graph.FILE_NAME;
 
-/**
- * 提前返回，不用遍历整张图
- */
-public class Path {
+public class PathBFS {
     private Graph G;
     private boolean[] visited;
     private int s;
     private int t;
     private int[] pre;
 
-    public Path(Graph g, int s, int t) {
+    public PathBFS(Graph g, int s, int t) {
         G = g;
         this.s = s;
         this.t = t;
@@ -26,23 +25,30 @@ public class Path {
         for (int i = 0; i < pre.length; i++) {
             pre[i] = -1;
         }
-        dfs(s, s);
+        bfs(s);
         for (boolean e : visited) {
             System.out.printf(e + " ");
         }
         System.out.println();
     }
 
-    private boolean dfs(int v, int parent) {
-        visited[v] = true;
-        pre[v] = parent;
-        if (v == t) return true;
-        for (Integer w : G.adj(v)) {
-            if (!visited[w]) {
-                if (dfs(w, v)) return true;
+    private void bfs(int s) {
+        Queue<Integer> queue = new LinkedList<>();
+        visited[s] = true;
+        pre[s] = s;
+        queue.add(s);
+        if (s == t) return;
+        while (!queue.isEmpty()) {
+            int v = queue.remove();
+            for (Integer w : G.adj(v)) {
+                if (!visited[w]) {
+                    queue.add(w);
+                    visited[w] = true;
+                    pre[w] = v;
+                    if (w == t) return;
+                }
             }
         }
-        return false;
     }
 
     public boolean isConnected() {
@@ -64,9 +70,9 @@ public class Path {
 
     public static void main(String[] args) {
         Graph graph = new Graph(FILE_NAME);
-        Path ss = new Path(graph, 0, 1);
+        PathBFS ss = new PathBFS(graph, 0, 1);
         System.out.println("0->1" + ss.path());
-        Path ss2 = new Path(graph, 0, 6);
+        PathBFS ss2 = new PathBFS(graph, 0, 6);
         System.out.println("0->6" + ss2.path());
     }
 }

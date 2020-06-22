@@ -7,13 +7,13 @@ import static graph2.base.Graph.FILE_NAME;
 /**
  * 二分图检测
  */
-public class BiPartitionDetection {
+public class BiPartitionDetectionDFS {
     private Graph G;
     private boolean[] visited;
     private boolean biPart = true;
     private int[] colors;
 
-    public BiPartitionDetection(Graph g) {
+    public BiPartitionDetectionDFS(Graph g) {
         G = g;
         visited = new boolean[G.V()];
         colors = new int[G.V()];
@@ -47,11 +47,11 @@ public class BiPartitionDetection {
 
     public static void main(String[] args) {
         Graph graph = new Graph(FILE_NAME);
-        BiPartitionDetection biPartitionDetection = new BiPartitionDetection(graph);
+        BiPartitionDetectionDFS biPartitionDetection = new BiPartitionDetectionDFS(graph);
         System.out.println(biPartitionDetection.isBipartite());
 
         Graph graph2 = new Graph("src/main/java/graph2/g3.txt");
-        BiPartitionDetection biPartitionDetection2 = new BiPartitionDetection(graph2);
+        BiPartitionDetectionDFS biPartitionDetection2 = new BiPartitionDetectionDFS(graph2);
         System.out.println(biPartitionDetection2.isBipartite());
     }
 }
