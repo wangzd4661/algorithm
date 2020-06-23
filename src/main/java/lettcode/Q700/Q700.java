@@ -1,4 +1,4 @@
-package lettcode.Q600;
+package lettcode.Q700;
 
 import lettcode.tree.TreeNode;
 
