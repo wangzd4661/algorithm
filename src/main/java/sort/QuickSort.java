@@ -2,11 +2,11 @@ package sort;
 
 public class QuickSort extends Sort {
     @Override
-    void sort(int[] args) {
+    public void sort(Integer[] args) {
         qSort(args, 0, args.length - 1);
     }
 
-    public  void qSort(int[] arr, int head, int tail) {
+    public  void qSort(Integer[] arr, int head, int tail) {
         if (head >= tail || arr == null || arr.length <= 1) {
             return;
         }

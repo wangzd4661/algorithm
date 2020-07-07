@@ -2,7 +2,7 @@ package sort;
 
 public class CountingSort extends Sort {
     @Override
-    void sort(int[] args) {
+    public  void sort(Integer[] args) {
         if (args == null || args.length <= 0) {
             return;
         }

@@ -1,5 +1,7 @@
 package sort;
 
+import java.util.Arrays;
+
 /**
  * 冒泡排序
  * 时间复杂度是O（n*n），空间复杂度是O（1）
@@ -8,20 +10,42 @@ package sort;
  */
 public class BubbleSort extends Sort {
     @Override
-    void sort(int[] args) {
-        if (args == null || args.length <= 0) {
+    public void sort(Integer[] arr) {
+        if (arr == null || arr.length <= 0) {
             return;
         }
-        for (int i = 0; i < args.length - 1; i++) {
+        for (int i = 0; i < arr.length - 1; i++) {
             // 提前退出
             boolean flag = false;
-            for (int j = 0; j < args.length - 1 - i; j++) {
-                if (args[j] > args[j + 1]) {
-                    exch(args, j, j + 1);
-                    flag=true;
+            for (int j = 0; j < arr.length - 1 - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    exch(arr, j, j + 1);
+                    flag = true;
                 }
             }
-            if(!flag)break;
+            if (!flag) break;
         }
+    }
+
+    void sort2(Integer[] arr) {
+        if (arr == null || arr.length == 0) return;
+        for (int i = 0; i < arr.length - 1; i++) {
+            boolean flag = false;
+            for (int j = 0; j < arr.length - 1 - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    exch(arr, j, j+1);
+                    flag = true;
+                }
+            }
+            if (!flag) break;
+        }
+    }
+
+    public static void main(String[] args) {
+        Integer[] arr = {3, 9, -1, 10, -2};
+        //int[] arr = {3, 9, -1, 10, 20};
+        BubbleSort sort = new BubbleSort();
+        sort.sort2(arr);
+        System.out.println(Arrays.toString(arr));
     }
 }

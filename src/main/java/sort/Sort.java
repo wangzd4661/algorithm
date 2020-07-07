@@ -1,11 +1,11 @@
 package sort;
 
 public abstract class Sort {
-    abstract void sort(int[] args);
+    public abstract void sort(Integer[] args);
 
-    void exch(int[] args, int i, int j) {
-        int temp = args[j];
-        args[j] = args[i];
-        args[i] = temp;
+    void exch(Integer[] arr, int i, int j) {
+        int temp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = temp;
     }
 }
