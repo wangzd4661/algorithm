@@ -29,7 +29,34 @@ public class Q234 {
         return true;
     }
 
+    /**
+     * 时间O(n),空间O(1)
+     * 思路：快慢指针先找到中点,并翻转前半段链表
+     */
+    public static boolean isPalindrome2(ListNode head) {
+        if (head == null || head.next == null) return true;
+        ListNode fast = head;
+        ListNode slow = head;
+        ListNode pre = null;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            ListNode sNext = slow.next;
+            slow.next = pre;
+            pre = slow;
+            slow = sNext;
+        }
+        if (fast != null) {//奇数个，往后移一位
+            slow = slow.next;
+        }
+        while (slow != null) {
+            if (slow.val != pre.val) return false;
+            slow=slow.next;
+            pre=pre.next;
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
-        System.out.println(isPalindrome(new ListNode(new int[]{1, 2, 4, 2, 1})));
+        System.out.println(isPalindrome2(new ListNode(new int[]{1, 2,  2, 1})));
     }
 }
