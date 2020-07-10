@@ -1,7 +1,5 @@
 package sort;
 
-import java.util.Arrays;
-
 /**
  * 简单插入排序：把无序列表数字依次插入到有序列表
  * 时间复杂度是O（n*n），空间复杂度是O（1）
@@ -16,6 +14,19 @@ public class InsertionSort extends Sort {
             int insertVal = arr[i];
             int insertIndex = i - 1;
             while (insertIndex >= 0 && arr[insertIndex] > insertVal) {
+                arr[insertIndex + 1] = arr[insertIndex];
+                insertIndex--;
+            }
+            arr[insertIndex + 1] = insertVal;
+        }
+    }
+
+    //对[l,r]排序
+    public static void sort(Integer[] arr, int l, int r) {
+        for (int i = l + 1; i < r + 1; i++) {
+            int insertVal = arr[i];
+            int insertIndex = i - 1;
+            while (insertIndex >= l && arr[insertIndex] > insertVal) {
                 arr[insertIndex + 1] = arr[insertIndex];
                 insertIndex--;
             }
@@ -65,12 +76,13 @@ public class InsertionSort extends Sort {
     }
 
     public static void main(String[] args) {
-        Integer[] arr = {101,34,119,1};
-        new InsertionSort().sort(arr);
+        Integer[] arr = SortTestHelper.generateRandomArray(100000,0,100000);
+        sort(arr,0,arr.length-1);
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i]);
             System.out.print(' ');
         }
         System.out.println();
+        System.out.println(SortTestHelper.isSorted(arr));
     }
 }
