@@ -16,6 +16,7 @@ public class MaxHeap<E extends Comparable<E>> {
     }
     public MaxHeap(E[] arr) {
         data = new MyArrayList(arr);
+        //heapify，将n个数插入堆中heapify复杂度为O（n），add的为O（nlogn）
         for (int i = parent(arr.length-1); i >=0 ; i--) {
             siftDown(i);
         }
@@ -78,13 +79,15 @@ public class MaxHeap<E extends Comparable<E>> {
 
     private void siftDown(int k) {
         while (leftChild(k) < data.getSize()) {
-            //找最大值
+            //先找左孩子，在找左右孩子中的最大值
             int j = leftChild(k);
             //有右孩子且右孩子大于左孩子
             if (j + 1 < data.getSize() && data.get(j + 1).compareTo(data.get(j)) > 0) {
-                j = j + 1;
+                j = j + 1;//最大值为右孩子
             }
+            //当前值大于两个孩子节点，直接结束。
             if (data.get(k).compareTo(data.get(j)) >= 0) break;
+            //下沉
             data.swap(k, j);
             k = j;
         }
