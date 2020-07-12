@@ -63,6 +63,18 @@ public class SortTestHelper {
                 return false;
         return true;
     }
+    // 将数组arr随机化
+    public static void shuffleArray( Object[] arr ){
+
+        int n = arr.length;
+        for( int i = 0 ; i < n ; i ++ ){
+            int j = (int)(Math.random() * (n-i)) + i;
+
+            Object t = arr[i];
+            arr[i] = arr[j];
+            arr[j] = t;
+        }
+    }
 
     // 测试sortClassName所对应的排序算法排序arr数组所得到结果的正确性和算法运行时间
     public static void testSort(String sortClassName, Comparable[] arr) {
@@ -91,5 +103,22 @@ public class SortTestHelper {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    // 生成一个完全有序的数组
+    public static Integer[] generateOrderedArray( int n ){
+
+        return generateNearlyOrderedArray(n, 0);
+    }
+
+    // 生成一个完全逆序的数组
+    public static Integer[] generateInversedArray( int n ){
+
+        Integer[] arr = generateOrderedArray( n );
+        for( int i = n/2 - 1 ; i >= 0 ; i -- ){
+            Integer t = arr[i];
+            arr[i] = arr[n-i-1];
+            arr[n-i-1] = t;
+        }
+        return arr;
     }
 }
