@@ -41,4 +41,23 @@ public class Q654 {
         preOrder(root.left);
         preOrder(root.right);
     }
+    public static TreeNode constructMaximumBinaryTree2(int[] nums) {
+        return build(nums,0,nums.length-1);
+    }
+    //[l,r]
+    public static TreeNode build(int[] nums,int l,int r){
+        if(l>r)return null;
+        int max=Integer.MIN_VALUE;
+        int index=-1;
+        for (int i = l; i <= r ; i++) {
+            if(nums[i]>max){
+                max=nums[i];
+                index=i;
+            }
+        }
+        TreeNode root=new TreeNode(max);
+        root.left=build(nums,l,index);
+        root.right=build(nums,index+1,r);
+        return root;
+    }
 }

@@ -27,8 +27,26 @@ public class Q114 {
         n3.right = n6;
         flatten(n1);
     }
-
+    // 定义：将以 root 为根的树拉平为链表
     public static void flatten(TreeNode root) {
+        if(root==null)return;
+        flatten(root.left);
+        flatten(root.right);
+        //左右子树已经展开
+        TreeNode left=root.left;
+        TreeNode right=root.right;
+
+        root.left=null;
+        root.right=left;
+
+        TreeNode p=root;
+        while (p.right!=null){
+            p=p.right;
+        }
+        p.right=right;
+    }
+
+    public static void flatten2(TreeNode root) {
         List<TreeNode> list = new ArrayList<>();
         preOrder(root, list);
         for (int i = 0; i < list.size() - 1; i++) {
