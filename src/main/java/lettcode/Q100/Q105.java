@@ -3,14 +3,9 @@ package lettcode.Q100;
 import lettcode.tree.TreeNode;
 
 /**
- * 104. 从前序与中序遍历序列构造二叉树
+ * 105. 从前序与中序遍历序列构造二叉树
  * https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
  */
-
-
-
-
-
 public class Q105 {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         return build(preorder,0,preorder.length-1,

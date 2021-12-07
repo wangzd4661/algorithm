@@ -3,7 +3,9 @@ package lettcode.Q500;
 import lettcode.tree.TreeNode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * 515. 在每个树行中找最大值
@@ -28,19 +30,25 @@ public class Q515 {
         List list = largestValues(n1);
         System.out.print(list.toString());
     }
-
     public static List<Integer> largestValues(TreeNode root) {
-        List<Integer> list = new ArrayList<>();
-        list.add(root.val);
-        //list.add(largest(root));
-        return list;
+        List<Integer> res = new LinkedList<>();
+        if(root==null)return res;
+        Queue<TreeNode> queue= new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()){
+            int sz=queue.size();
+            int max=Integer.MIN_VALUE;
+            for (int i=0;i<sz;i++){
+                TreeNode cur=queue.poll();
+                max=Math.max(cur.val,max);
+                if (cur.left != null) queue.add(cur.left);
+                if (cur.right != null) queue.add(cur.right);
+            }
+            res.add(max);
+        }
+        return res;
     }
 
-    public static void largest(TreeNode root, List list) {
-        if (root == null) return;
-        int max = Math.max(root.left.val, root.right.val);
-        list.add(max);
-    }
 
 
     /**
