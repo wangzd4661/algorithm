@@ -17,5 +17,16 @@ public class Q509 {
         }
         return m[N];
     }
+    public static int fib2(int N) {
+        if(N<=1) return N;
+        if(N==1||N==2)return 1;
+        int pre=1,cur=1;
+        for (int i = 3; i <= N; i++) {
+            int sum=pre+cur;
+            pre=cur;
+            cur=sum;
+        }
+        return cur;
+    }
 
 }

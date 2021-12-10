@@ -40,5 +40,11 @@ public class Q111 {
             return 1;
         }
     }
+    public int minDepth2(TreeNode root) {
+        if (root == null) return 0;
+        int leftDepth=minDepth(root.left);
+        int rightDepth=minDepth(root.right);
+        return (leftDepth == 0 || rightDepth == 0) ? leftDepth + rightDepth + 1 : Math.min(leftDepth, rightDepth) + 1;
+    }
 
 }
