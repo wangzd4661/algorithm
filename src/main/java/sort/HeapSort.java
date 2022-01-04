@@ -45,9 +45,9 @@ public class HeapSort extends Sort {
     public static void main(String[] args) {
         int n = 1000000;
         //近乎有
-        Integer[] a = SortTestHelper.generateNearlyOrderedArray(n, n / 100);
+        //Integer[] a = SortTestHelper.generateNearlyOrderedArray(n, n / 100);
         //随机
-        //Integer[] a = SortTestHelper.generateRandomArray(n, 0, n);
+        Integer[] a = SortTestHelper.generateRandomArray(n, 0, n);
         SortTestHelper.testSort("sort.HeapSort", a);
         System.out.println(SortTestHelper.isSorted(a));
     }

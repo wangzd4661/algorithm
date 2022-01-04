@@ -6,8 +6,8 @@ package lettcode.Q100;
  */
 public class Q198 {
     public static void main(String[] args) {
-        int[] n = {1, 2, 3, 1};
-        System.out.printf("" + rob(n));
+        int[] n = {2, 7, 9,3, 1};
+        System.out.printf("" + rob2(n));
     }
 
     /**
@@ -26,5 +26,18 @@ public class Q198 {
             result[i] = Math.max(result[i - 2] + nums[i], result[i - 1]);
         }
         return result[nums.length - 1];
+    }
+    //f(n)=max(cost[n]+f(n-2),f(n-1))
+    public static int rob2(int[] nums) {
+        int n=nums.length;
+        if(n==1)return nums[0];
+        int pre=0;
+        int cur=nums[0];
+        for (int i = 1; i <n; i++) {
+            int max=Math.max(pre+nums[i],cur);
+            pre=cur;
+            cur=max;
+        }
+        return cur;
     }
 }

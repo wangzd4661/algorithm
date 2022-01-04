@@ -42,10 +42,9 @@ public class BubbleSort extends Sort {
     }
 
     public static void main(String[] args) {
-        Integer[] arr = {3, 9, -1, 10, -2};
-        //int[] arr = {3, 9, -1, 10, 20};
-        BubbleSort sort = new BubbleSort();
-        sort.sort2(arr);
-        System.out.println(Arrays.toString(arr));
+        int n=100000;
+        Integer[] a = SortTestHelper.generateRandomArray(n,0,n);
+        SortTestHelper.testSort("sort.BubbleSort", a);
+        System.out.println(SortTestHelper.isSorted(a));
     }
 }
