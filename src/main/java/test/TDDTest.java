@@ -6,7 +6,7 @@ import java.util.*;
 public class TDDTest {
     public static void main(String[] args) {
         TDDTest test = new TDDTest();
-        String words = test.readFile("src\\main\\java\\test\\word.txt");
+        String words = test.readFile("src/main/java/test/word.txt");
         Map<String, Integer> map = test.wordFreq(words);
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
